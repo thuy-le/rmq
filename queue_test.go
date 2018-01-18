@@ -421,7 +421,7 @@ func (suite *QueueSuite) TestDelayQueue(c *C) {
 	c.Check(queue.PublishOnDelay("publish-delay-1", time.Unix(int64(1516147203), 0)), Equals, true)
 	c.Check(queue.PublishOnDelay("publish-delay-2", time.Unix(int64(1516147202), 0)), Equals, true)
 	c.Check(queue.PublishOnDelay("publish-delay-3", time.Unix(int64(1516147201), 0)), Equals, true)
-
+	c.Assert(assertDelayed(queue, 3), Equals, true)
 	queue.StartConsuming(10, time.Millisecond)
 	c.Assert(assertUnacked(queue, 3), Equals, true)
 

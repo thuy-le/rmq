@@ -2,22 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="75d925ad-8a5f-44be-93fc-bbe100656645" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change beforePath="$PROJECT_DIR$/cleaner_test.go" afterPath="$PROJECT_DIR$/cleaner_test.go" />
-      <change beforePath="$PROJECT_DIR$/delivery.go" afterPath="$PROJECT_DIR$/delivery.go" />
-      <change beforePath="$PROJECT_DIR$/example/batch_consumer.go" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/example/cleaner.go" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/example/consumer.go" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/example/handler.go" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/example/producer.go" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/example/purger.go" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/example/returner.go" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/queue.go" afterPath="$PROJECT_DIR$/queue.go" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/consumer_assert.go" afterPath="$PROJECT_DIR$/consumer_assert.go" />
       <change beforePath="$PROJECT_DIR$/queue_test.go" afterPath="$PROJECT_DIR$/queue_test.go" />
-      <change beforePath="$PROJECT_DIR$/state.go" afterPath="$PROJECT_DIR$/state.go" />
-      <change beforePath="$PROJECT_DIR$/stats_test.go" afterPath="$PROJECT_DIR$/stats_test.go" />
-      <change beforePath="$PROJECT_DIR$/test_delivery.go" afterPath="$PROJECT_DIR$/test_delivery.go" />
-      <change beforePath="$PROJECT_DIR$/test_queue.go" afterPath="$PROJECT_DIR$/test_queue.go" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -28,31 +15,43 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="consumer.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/consumer.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="delivery.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/delivery.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-612">
-              <caret line="6" column="22" lean-forward="false" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="22" />
+            <state relative-caret-position="175">
+              <caret line="10" column="4" lean-forward="false" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
+              <folding>
+                <element signature="e#13#60#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="deliveries.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/deliveries.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="232">
+              <caret line="15" column="20" lean-forward="false" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="queue.go" pinned="false" current-in-tab="true">
+      <file leaf-file-name="queue.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/queue.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="343">
-              <caret line="160" column="30" lean-forward="true" selection-start-line="160" selection-start-column="30" selection-end-line="160" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="asm_amd64.s" pinned="false" current-in-tab="false">
-        <entry file="file:///usr/local/go/src/runtime/asm_amd64.s">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="2336" column="0" lean-forward="false" selection-start-line="2336" selection-start-column="0" selection-end-line="2336" selection-end-column="0" />
+            <state relative-caret-position="298">
+              <caret line="176" column="30" lean-forward="true" selection-start-line="176" selection-start-column="30" selection-end-line="176" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -61,10 +60,22 @@
       <file leaf-file-name="queue_test.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/queue_test.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-96">
-              <caret line="246" column="45" lean-forward="true" selection-start-line="246" selection-start-column="45" selection-end-line="246" selection-end-column="45" />
+            <state relative-caret-position="186">
+              <caret line="423" column="51" lean-forward="false" selection-start-line="423" selection-start-column="51" selection-end-line="423" selection-end-column="51" />
               <folding>
                 <element signature="e#13#133#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="consumer_assert.go" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/consumer_assert.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="133">
+              <caret line="18" column="42" lean-forward="false" selection-start-line="18" selection-start-column="42" selection-end-line="18" selection-end-column="42" />
+              <folding>
+                <element signature="e#13#31#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -74,27 +85,7 @@
         <entry file="file://$PROJECT_DIR$/test_batch_consumer.go">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="337">
-              <caret line="22" column="41" lean-forward="true" selection-start-line="22" selection-start-column="41" selection-end-line="22" selection-end-column="41" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="gocheck.go" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../github.com/adjust/gocheck/gocheck.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1197">
-              <caret line="73" column="5" lean-forward="false" selection-start-line="73" selection-start-column="5" selection-end-line="73" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cleaner.go" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cleaner.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <caret line="22" column="41" lean-forward="false" selection-start-line="22" selection-start-column="41" selection-end-line="22" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -110,27 +101,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test_consumer.go" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test_consumer.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="12" column="24" lean-forward="false" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="checkers.go" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../github.com/adjust/gocheck/checkers.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3402">
-              <caret line="166" column="4" lean-forward="false" selection-start-line="166" selection-start-column="4" selection-end-line="166" selection-end-column="4" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+      </list>
+    </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -143,15 +121,25 @@
       <find>fmt.Println(</find>
       <find>newDeli</find>
       <find>TestingSuiteT</find>
-      <find>migrateExpiredDeliveries</find>
       <find>time.s</find>
       <find>time.Sleep</find>
       <find>.eva</find>
-      <find>.eval</find>
       <find>time.Sleep(10</find>
+      <find>StopConsuming</find>
+      <find>readyco</find>
+      <find>.unackedKey</find>
+      <find>lpush</find>
+      <find>migrateExpiredDeliveries</find>
+      <find>fmt.Println</find>
+      <find>delay</find>
+      <find>delayedAt</find>
+      <find>.eval</find>
+      <find>ondelay</find>
+      <find>PurgeDe</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/../github.com/adjust/gocheck</dir>
+      <dir>$PROJECT_DIR$/../..</dir>
     </dirStrings>
   </component>
   <component name="GOROOT" path="/usr/local/go" />
@@ -164,6 +152,7 @@
         <option value="$PROJECT_DIR$/test_batch_consumer.go" />
         <option value="$PROJECT_DIR$/queue.go" />
         <option value="$PROJECT_DIR$/queue_test.go" />
+        <option value="$PROJECT_DIR$/consumer_assert.go" />
       </list>
     </option>
   </component>
@@ -251,6 +240,8 @@
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="DefaultGoTemplateProperty" value="Go File" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/thuy.lehuynhngoc/Workspace/lel/go/src/rmq/consumer_assert.go" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -300,40 +291,39 @@
     <option name="remove_strategy" value="false" />
   </component>
   <component name="TestHistory">
-    <history-entry file="TestQueueSuite_in_queue_test_go - 2018.01.18 at 14h 33m 47s.xml">
+    <history-entry file="TestQueueSuite_in_queue_test_go - 2018.01.18 at 17h 51m 46s.xml">
       <configuration name="TestQueueSuite in queue_test.go" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestQueueSuite_in_queue_test_go - 2018.01.18 at 14h 34m 04s.xml">
+    <history-entry file="TestQueueSuite_in_queue_test_go - 2018.01.18 at 17h 51m 51s.xml">
       <configuration name="TestQueueSuite in queue_test.go" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestQueueSuite_in_queue_test_go - 2018.01.18 at 14h 34m 13s.xml">
+    <history-entry file="TestQueueSuite_in_queue_test_go - 2018.01.18 at 17h 55m 01s.xml">
       <configuration name="TestQueueSuite in queue_test.go" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestQueueSuite_in_queue_test_go - 2018.01.18 at 14h 34m 29s.xml">
+    <history-entry file="TestQueueSuite_in_queue_test_go - 2018.01.18 at 17h 55m 35s.xml">
       <configuration name="TestQueueSuite in queue_test.go" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestQueueSuite_in_queue_test_go - 2018.01.18 at 14h 34m 46s.xml">
+    <history-entry file="TestQueueSuite_in_queue_test_go - 2018.01.18 at 17h 56m 08s.xml">
       <configuration name="TestQueueSuite in queue_test.go" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestQueueSuite_in_queue_test_go - 2018.01.18 at 14h 34m 56s.xml">
+    <history-entry file="TestQueueSuite_in_queue_test_go - 2018.01.18 at 17h 56m 29s.xml">
       <configuration name="TestQueueSuite in queue_test.go" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestQueueSuite_in_queue_test_go - 2018.01.18 at 14h 35m 22s.xml">
+    <history-entry file="TestQueueSuite_in_queue_test_go - 2018.01.18 at 18h 05m 43s.xml">
       <configuration name="TestQueueSuite in queue_test.go" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestQueueSuite_in_queue_test_go - 2018.01.18 at 14h 35m 28s.xml">
+    <history-entry file="TestQueueSuite_in_queue_test_go - 2018.01.18 at 18h 11m 52s.xml">
       <configuration name="TestQueueSuite in queue_test.go" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestQueueSuite_in_queue_test_go - 2018.01.18 at 14h 35m 33s.xml">
+    <history-entry file="TestQueueSuite_in_queue_test_go - 2018.01.18 at 18h 12m 26s.xml">
       <configuration name="TestQueueSuite in queue_test.go" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestQueueSuite_in_queue_test_go - 2018.01.18 at 14h 36m 33s.xml">
+    <history-entry file="TestQueueSuite_in_queue_test_go - 2018.01.18 at 18h 13m 52s.xml">
       <configuration name="TestQueueSuite in queue_test.go" configurationId="GoTestRunConfiguration" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="709" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2536349" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -342,7 +332,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" show_stripe_button="true" weight="0.32869565" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" x="1649" y="148" width="1238" height="708" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" show_stripe_button="true" weight="0.32869565" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" x="1649" y="148" width="1238" height="708" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -363,43 +353,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/queue.go</url>
-          <line>257</line>
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/queue.go</url>
-          <line>191</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/queue.go</url>
-          <line>258</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="6" />
+      <option name="time" value="7" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/deliveries.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="15" column="20" lean-forward="false" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/consumer.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../github.com/adjust/gocheck/gocheck.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1197">
@@ -409,14 +367,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cleaner.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/batch_consumer.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -443,15 +393,7 @@
     <entry file="file://$PROJECT_DIR$/test_batch_consumer.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="337">
-          <caret line="22" column="41" lean-forward="true" selection-start-line="22" selection-start-column="41" selection-end-line="22" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/delivery.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-612">
-          <caret line="6" column="22" lean-forward="false" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="22" />
+          <caret line="22" column="41" lean-forward="false" selection-start-line="22" selection-start-column="41" selection-end-line="22" selection-end-column="41" />
           <folding />
         </state>
       </provider>
@@ -464,21 +406,73 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/batch_consumer.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/consumer.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/delivery.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="10" column="4" lean-forward="false" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
+          <folding>
+            <element signature="e#13#60#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deliveries.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="15" column="20" lean-forward="false" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../gopkg.in/redis.v5/commands.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="258">
+          <caret line="1247" column="18" lean-forward="false" selection-start-line="1247" selection-start-column="18" selection-end-line="1247" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/queue.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="176" column="30" lean-forward="true" selection-start-line="176" selection-start-column="30" selection-end-line="176" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/queue_test.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-96">
-          <caret line="246" column="45" lean-forward="true" selection-start-line="246" selection-start-column="45" selection-end-line="246" selection-end-column="45" />
+        <state relative-caret-position="186">
+          <caret line="423" column="51" lean-forward="false" selection-start-line="423" selection-start-column="51" selection-end-line="423" selection-end-column="51" />
           <folding>
             <element signature="e#13#133#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/queue.go">
+    <entry file="file://$PROJECT_DIR$/consumer_assert.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="160" column="30" lean-forward="true" selection-start-line="160" selection-start-column="30" selection-end-line="160" selection-end-column="30" />
-          <folding />
+        <state relative-caret-position="133">
+          <caret line="18" column="42" lean-forward="false" selection-start-line="18" selection-start-column="42" selection-end-line="18" selection-end-column="42" />
+          <folding>
+            <element signature="e#13#31#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

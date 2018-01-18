@@ -24,6 +24,16 @@ func assertReady(queue *redisQueue, v int) bool {
 	return false
 }
 
+func assertDelayed(queue *redisQueue, v int) bool {
+	for i := 0; i < 100; i++ {
+		time.Sleep(100 * time.Millisecond)
+		if queue.DelayedCount() == v {
+			return true
+		}
+	}
+	return false
+}
+
 func waitFor(payload string, consumer *TestConsumer) string {
 	for i := 0; i < 10; i++ {
 		time.Sleep(100 * time.Millisecond)
