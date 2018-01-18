@@ -19,7 +19,7 @@ func TestQueueSuite(t *testing.T) {
 	defer s.Close()
 	TestingSuiteT(&QueueSuite{
 		redis: s,
-		addr:  s.Addr(),
+		addr:  "192.168.99.100:6379",
 	}, t)
 }
 
@@ -406,6 +406,31 @@ func (suite *QueueSuite) TestConsuming(c *C) {
 	queue.StartConsuming(10, time.Millisecond)
 	c.Check(queue.StopConsuming(), Equals, true)
 	c.Check(queue.StopConsuming(), Equals, false)
+}
+
+func (suite *QueueSuite) TestDelayQueue(c *C) {
+	connection := OpenConnection("push", "tcp", suite.addr, 1)
+	queue := connection.OpenQueue("queue").(*redisQueue)
+
+	var payloads = []string{
+		"publish-delay-1",
+		"publish-delay-2",
+		"publish-delay-3",
+	}
+
+	c.Check(queue.PublishOnDelay("publish-delay-1", time.Unix(int64(1516147203), 0)), Equals, true)
+	c.Check(queue.PublishOnDelay("publish-delay-2", time.Unix(int64(1516147202), 0)), Equals, true)
+	c.Check(queue.PublishOnDelay("publish-delay-3", time.Unix(int64(1516147201), 0)), Equals, true)
+
+	queue.StartConsuming(10, time.Millisecond)
+	c.Assert(assertUnacked(queue, 3), Equals, true)
+
+	consumer := NewTestConsumer("push-cons")
+	consumer.AutoAck = false
+	consumer.AutoFinish = true
+	queue.AddConsumer("push-cons", consumer)
+	waitForAll(payloads, consumer)
+	c.Check(consumer.LastDeliveries, HasLen, 3)
 }
 
 func (suite *QueueSuite) BenchmarkQueue(c *C) {

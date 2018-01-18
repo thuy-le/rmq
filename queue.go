@@ -8,8 +8,6 @@ import (
 
 	"github.com/adjust/uniuri"
 	"gopkg.in/redis.v5"
-	"strconv"
-	"math"
 )
 
 const (
@@ -109,7 +107,9 @@ func (queue *redisQueue) PublishOnDelay(payload string, delayedAt time.Time) boo
 		Score:  float64(delayedAt.Unix()),
 		Member: payload,
 	}
-	return !redisErrIsNil(queue.redisClient.ZAdd(queue.delayedKey, z))
+
+	result := queue.redisClient.ZAdd(queue.delayedKey, z)
+	return !redisErrIsNil(result)
 }
 
 // PublishBytes just casts the bytes and calls Publish
@@ -224,9 +224,8 @@ func (queue *redisQueue) ReturnRejected(count int) int {
 		if redisErrIsNil(result) {
 			return i
 		}
-		// debug(fmt.Sprintf("rmq queue returned rejected delivery %s %s", result.Val(), queue.readyKey)) // COMMENTOUT
+		debug(fmt.Sprintf("rmq queue returned rejected delivery %s %s", result.Val(), queue.readyKey)) // COMMENTOUT
 	}
-
 	return count
 }
 
@@ -355,59 +354,26 @@ func (queue *redisQueue) consume() {
 }
 
 func (queue *redisQueue) migrateExpiredDeliveries(from string, to string, curr time.Time) bool {
-	var redisError = true
-	min := fmt.Sprintf("%d", curr.Unix())
-	redisError = redisErrIsNil(queue.redisClient.ZRangeByScore(from, redis.ZRangeBy{Min: min}))
-	val, err := queue.redisClient.ZRangeByScore(from, redis.ZRangeBy{Min: min}).Result()
-	if err != nil {
-		log.Panic(err)
-		return false
-	}
+	cmd := queue.redisClient.Eval(
+		`-- Get all of the jobs with an expired "score"...
+		local val = redis.call('zrangebyscore', KEYS[1], '-inf', ARGV[1])
 
-	for _, v := range val {
-		if v == "" {
-			continue
-		}
-		vi, err := strconv.ParseInt(v, 10, 64)
+		-- If we have values in the array, we will remove them from the first queue
+		-- and add them onto the destination queue in chunks of 100, which moves
+		-- all of the appropriate jobs onto the destination queue very safely.
+		if(next(val) ~= nil) then
+			redis.call('zremrangebyrank', KEYS[1], 0, #val - 1)
 
-		if err != nil {
-			log.Panic(err)
-			return false
-		}
+			for i = 1, #val, 100 do
+				redis.call('rpush', KEYS[2], unpack(val, i, math.min(i+99, #val)))
+			end
+		end
 
-		redisError = redisErrIsNil(queue.redisClient.ZRemRangeByRank(from, 0, vi))
-		for i := 1; i <= int(vi); i += 100 {
-			j := math.Min(float64(i + 99), float64(vi))
-			var values []string
-			for k := i; k < int(j); k++ {
-				values = append(values, val[k])
-			}
-			redisError = redisErrIsNil(queue.redisClient.RPush(to, values))
-		}
-	}
-
-	//cmd := queue.redisClient.Eval(
-	//	`-- Get all of the jobs with an expired "score"...
-	//	local val = redis.call('zrangebyscore', KEYS[1], '-inf', ARGV[1])
-	//
-	//	-- If we have values in the array, we will remove them from the first queue
-	//	-- and add them onto the destination queue in chunks of 100, which moves
-	//	-- all of the appropriate jobs onto the destination queue very safely.
-	//	if(next(val) ~= nil) then
-	//		redis.call('zremrangebyrank', KEYS[1], 0, #val - 1)
-	//
-	//		for i = 1, #val, 100 do
-	//			redis.call('rpush', KEYS[2], unpack(val, i, math.min(i+99, #val)))
-	//		end
-	//	end
-	//
-	//	return val`,
-	//	[]string{from, to},
-	//	curr.Unix(),
-	//)
-	//return redisErrIsNil(cmd)
-	//return true
-	return redisError
+		return val`,
+		[]string{from, to},
+		curr.Unix(),
+	)
+	return redisErrIsNil(cmd)
 }
 
 func (queue *redisQueue) batchSize() int {
