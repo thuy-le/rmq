@@ -1,6 +1,9 @@
 package rmq
 
-import "encoding/json"
+import (
+	"encoding/json"
+	"time"
+)
 
 type TestDelivery struct {
 	State   State
@@ -49,6 +52,14 @@ func (delivery *TestDelivery) Reject() bool {
 func (delivery *TestDelivery) Push() bool {
 	if delivery.State == Unacked {
 		delivery.State = Pushed
+		return true
+	}
+	return false
+}
+
+func (delivery *TestDelivery) Delay(delayedAt time.Time) bool {
+	if delivery.State == Unacked {
+		delivery.State = Delayed
 		return true
 	}
 	return false

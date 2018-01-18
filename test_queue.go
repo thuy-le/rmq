@@ -26,6 +26,15 @@ func (queue *TestQueue) PublishBytes(payload []byte) bool {
 	return queue.Publish(string(payload))
 }
 
+func (queue *TestQueue) PublishOnDelay(payload string, delayedAt time.Time) bool {
+	queue.LastDeliveries = append(queue.LastDeliveries, payload)
+	return true
+}
+
+func (queue *TestQueue) PublishBytesOnDelay(payload []byte, delayedAt time.Time) bool {
+	return queue.PublishOnDelay(string(payload), delayedAt)
+}
+
 func (queue *TestQueue) SetPushQueue(pushQueue Queue) {
 }
 

@@ -2,6 +2,7 @@ package rmq
 
 import (
 	"fmt"
+	"time"
 
 	"gopkg.in/redis.v5"
 )
@@ -10,6 +11,7 @@ type Delivery interface {
 	Payload() string
 	Ack() bool
 	Reject() bool
+	Delay(delayedAt time.Time) bool
 	Push() bool
 }
 
@@ -18,15 +20,17 @@ type wrapDelivery struct {
 	unackedKey  string
 	rejectedKey string
 	pushKey     string
+	delayedKey  string
 	redisClient *redis.Client
 }
 
-func newDelivery(payload, unackedKey, rejectedKey, pushKey string, redisClient *redis.Client) *wrapDelivery {
+func newDelivery(payload, unackedKey, rejectedKey, pushKey string, delayedKey string, redisClient *redis.Client) *wrapDelivery {
 	return &wrapDelivery{
 		payload:     payload,
 		unackedKey:  unackedKey,
 		rejectedKey: rejectedKey,
 		pushKey:     pushKey,
+		delayedKey:  delayedKey,
 		redisClient: redisClient,
 	}
 }
@@ -60,6 +64,23 @@ func (delivery *wrapDelivery) Push() bool {
 	} else {
 		return delivery.move(delivery.rejectedKey)
 	}
+}
+
+func (delivery *wrapDelivery) Delay(delayedAt time.Time) bool {
+	z := redis.Z{
+		Score: float64(delayedAt.Unix()),
+		Member: delivery.payload,
+	}
+	if redisErrIsNil(delivery.redisClient.ZAdd(delivery.delayedKey, z)) {
+		return false
+	}
+
+	if redisErrIsNil(delivery.redisClient.LRem(delivery.unackedKey, 1, delivery.payload)) {
+		return false
+	}
+
+	// debug(fmt.Sprintf("delivery delayed %s", delivery)) // COMMENTOUT
+	return true
 }
 
 func (delivery *wrapDelivery) move(key string) bool {

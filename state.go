@@ -9,4 +9,5 @@ const (
 	Acked
 	Rejected
 	Pushed
+	Delayed
 )
