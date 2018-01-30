@@ -11,7 +11,6 @@ type Delivery interface {
 	Payload() string
 	Ack() bool
 	Reject() bool
-	Delay(delayedAt time.Time, payload string) bool
 	Push() bool
 }
 
@@ -64,23 +63,6 @@ func (delivery *wrapDelivery) Push() bool {
 	} else {
 		return delivery.move(delivery.rejectedKey)
 	}
-}
-
-func (delivery *wrapDelivery) Delay(delayedAt time.Time, payload string) bool {
-	z := redis.Z{
-		Score: float64(delayedAt.Unix()),
-		Member: payload,
-	}
-	if redisErrIsNil(delivery.redisClient.ZAdd(delivery.delayedKey, z)) {
-		return false
-	}
-
-	if redisErrIsNil(delivery.redisClient.LRem(delivery.unackedKey, 1, payload)) {
-		return false
-	}
-
-	// debug(fmt.Sprintf("delivery delayed %s", delivery)) // COMMENTOUT
-	return true
 }
 
 func (delivery *wrapDelivery) move(key string) bool {
