@@ -2,7 +2,6 @@ package rmq
 
 import (
 	"fmt"
-	"time"
 
 	"gopkg.in/redis.v5"
 )
